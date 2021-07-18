@@ -8,13 +8,25 @@ public class main{
         String sign = " ";
         int one = 0;
         int two = 0;
-        int input = 0; 
-        int total = -1;
+        int input = 2; 
+        int total = 0;
         int incorrect = 0;
         boolean answer = true;
         boolean loop = false;
         boolean correct = true;
         int tempans = 0;
+		int digit1 = 2;
+		int digit2 = 2;
+		try{
+			System.out.println("Select Difficulty/Digits");
+			input = scan.nextInt();
+			digit1 = input;
+			input = scan.nextInt();
+			digit2 = input;
+		}
+		catch(Exception e){
+		
+		}
         do{
         	loop = false;
         	System.out.println("1 for Addition\n2 for Subtraction\n3 for Multiplication\n4 for Division");
@@ -38,15 +50,14 @@ public class main{
 	    loop = true;
         while(loop){
         	answer = true;
-            one = (int)(Math.random()*100);
-            two = (int)(Math.random()*100);
+            one = (int)(Math.random()*(Math.pow(10,digit1)));
+            two = (int)(Math.random()*(Math.pow(10,digit2)));
             if(one < two){
                 int swap = one;
                 one = two;
                 two = swap;
             }
             do{//repeat when wrong
-            	total++;
 	            System.out.println("\n" + (total+1) + ") Solve This:");
 	            System.out.printf("%5d",one);
 	            System.out.println();
@@ -74,23 +85,25 @@ public class main{
 	                break;
 	            }
 	            if(tempans == input){
+            		total++;
 	            	history temp = new history(one,two,input,true,sign);//ans t/f
 	           		System.out.println("Correct");
 	           		correct = true;
+					hist.add(temp);
 		        }
 		        else{
 		        	history temp = new history(one,two,input,false,sign);//ans t/f
 		        	System.out.println("Incorrect");
 		        	correct = false;
 		        	incorrect++;
-		            hist.add(temp);//loop
+		            hist.add(temp);
 		        }
 		    }
 		    while(!correct);
 		}
-        for(int i = 0; i < 25; i++){//clear
-            System.out.println();
-        }
+        // for(int i = 0; i < 30; i++){//clear
+        //     System.out.println();
+        // }
         for(history x : hist){//print stats
         	System.out.println(x.form());
         }

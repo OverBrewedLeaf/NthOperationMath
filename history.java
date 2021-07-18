@@ -10,7 +10,7 @@ public class history{
         this.two = two;
         this.ans = ans;
         this.answer = answer;
-        this.form = String.format("%2d%2s%3d%2s%1s%4d%1s%1s\n", one, sign, two, "=", " ", ans, " ", answer);
+        this.form = String.format("%2d%2s%3d%2s%1s%4d%1s%1s", one, sign, two, "=", " ", ans, " ", answer);
     }
 
     public int one(){
