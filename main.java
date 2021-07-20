@@ -50,21 +50,17 @@ public class main{
 	    loop = true;
         while(loop){
         	answer = true;
-            one = (int)(Math.random()*(Math.pow(10,digit1)));
-            two = (int)(Math.random()*(Math.pow(10,digit2)));
+            one = (int)(Math.random()*(Math.pow(10,digit1)+1));
+            two = (int)(Math.random()*(Math.pow(10,digit2)+1));
             if(one < two){
                 int swap = one;
                 one = two;
                 two = swap;
             }
+            if(two == 0){
+            	two = 1;
+            }
             do{//repeat when wrong
-	            System.out.println("\n" + (total+1) + ") Solve This:");
-	            System.out.printf("%5d",one);
-	            System.out.println();
-	            System.out.printf(sign + " %3d",two);
-	            System.out.println();
-	            System.out.println("‾‾‾‾‾‾");
-	            System.out.print("  ");
 	            if(sign.equals("+")){
 	            	tempans = one + two;
 	            }
@@ -76,6 +72,16 @@ public class main{
 	            }
 	            else if(sign.equals("/")){
 	            	tempans = one / two;
+	            	one = tempans * two;
+	            }
+	            System.out.println("\n" + (total+1) + ") Solve This:");
+	            System.out.printf("%5d",one);
+	            System.out.println();
+	            System.out.printf(sign + " %3d",two);
+	            System.out.println();
+	            System.out.println("‾‾‾‾‾‾");
+	            for(int i = 0; i < 5-(""+tempans).length();i++){
+	            	System.out.print(" ");
 	            }
 	            try{
 	                input = scan.nextInt();
