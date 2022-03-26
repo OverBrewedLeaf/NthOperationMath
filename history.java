@@ -1,10 +1,17 @@
 public class history{
-    private int one;
-    private int two;
-    private int ans;
+    private int one; //first number(largest)
+    private int two; //second number
+    private int ans; //
     private boolean answer;
-    private String form;
-
+    private String form; //printable
+    /*
+    constructor
+    one is the first number
+    two is the second number
+    ans is the user input
+    answer is if user was right or wrong
+    form is a formatted readable string
+    */
     public history(int one, int two, int ans, boolean answer, String sign){
         this.one = one;
         this.two = two;

@@ -25,14 +25,16 @@ public class main{
 			digit2 = input;
 		}
 		catch(Exception e){
-		
+			scan.next();
 		}
         do{
         	loop = false;
         	System.out.println("1 for Addition\n2 for Subtraction\n3 for Multiplication\n4 for Division");
 	        try{
 	        	input = scan.nextInt();
-	        }catch(Exception e){}
+	        }catch(Exception e){
+				scan.next();
+			}
 		    if(input == 1){
 		    	sign = "+";
 		    }
